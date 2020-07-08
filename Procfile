@@ -1,0 +1,1 @@
+worker: python set-resource-tracking.py
