@@ -136,14 +136,19 @@ class Samanage:
         for incident in incidents:
             resource = None
             subcategory = None
+            category = None
             # Check for issues or no match
             try:
+                category = incident['category']['name']
                 subcategory = incident['subcategory']['name']
                 resource = self.resource_dict[subcategory]
             except (TypeError, KeyError):
                 print(
                     f"No Match -- Subcategory: '{subcategory}' Resolved Resource: '{resource}'"
                 )
+                next
+            if category == 'Import':
+                print(f"Category was '{category}' skipping")
                 next
             if resource == None:
                 print(
