@@ -161,7 +161,7 @@ class Samanage:
                     f"Updating Incident #{incident['number']} to '{resource}' https://app.samanage.com/incidents/{incident['id']}")
                 payload = {'incident':
                            {'custom_fields_values': {
-                               'custom_fields_value': [{'name': 'Resource Tracking', 'value': resource}]
+                               'custom_fields_value': [{'name': 'Resource Tracking (Executive)', 'value': resource}]
                            }}}
                 api_request = requests.put(
                     self.base_url + f"incidents/{incident['id']}.json", json=payload, headers=self.default_headers)
