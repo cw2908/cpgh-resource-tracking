@@ -165,6 +165,8 @@ class Samanage:
                            }}}
                 api_request = requests.put(
                     self.base_url + f"incidents/{incident['id']}.json", json=payload, headers=self.default_headers)
+                print(api_request)
+                print(json.dumps(api_request.json(), indent=2))
 
 
 api_controller = Samanage(api_token)
