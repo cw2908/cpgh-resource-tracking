@@ -6,7 +6,8 @@ import urllib
 from datetime import datetime
 
 # Initialize CSV
-api_token = os.environ.get('ACCOUNT_TOKEN')
+# api_token = os.environ.get('ACCOUNT_TOKEN')
+api_token = sys.argv[1]
 
 
 class Samanage:
@@ -60,7 +61,6 @@ class Samanage:
             'Training, Copier/Printer Hardware': 'Issue',
             'Training, Hardware and Peripheral': 'Issue',
             'Training, Financial Application': 'Issue',
-            'Training, Non-Clinical Application': 'Issue',
             'Training, Non-Clinical Application': 'Issue',
             'Training, PACS/CPACS': 'Issue',
             'Training, Supply Chain Applications': 'Issue',
@@ -129,6 +129,7 @@ class Samanage:
         if int(api_request.headers['X-Total-Pages']) == page:
             return incidents
         else:
+            print(f"Headers: {api_request.headers['X-Total-Pages']}")
             return self.get_incidents(page=page+1, incidents=incidents)
 
     def update_incidents(self):
