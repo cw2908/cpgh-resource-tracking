@@ -6,8 +6,8 @@ import urllib
 from datetime import datetime
 
 # Initialize CSV
-# api_token = os.environ.get('ACCOUNT_TOKEN')
-api_token = sys.argv[1]
+api_token = os.environ.get('ACCOUNT_TOKEN')
+# api_token = sys.argv[1]
 
 
 class Samanage:
@@ -18,7 +18,7 @@ class Samanage:
             'Content-Type': 'application/json',
             'Accept': 'Accept: application/vnd.samanage.v2.1+json'
         }
-        self.default_params = {'updated[]': 1}
+        self.default_params = {'updated[]': 7}
         self.initialize()
         self.resource_dict = {
             'Administrative': 'Training and Administrative',
